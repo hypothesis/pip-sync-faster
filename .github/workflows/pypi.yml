@@ -1,0 +1,8 @@
+name: PyPI
+on:
+  release:
+    types: [published]
+jobs:
+  PyPI:
+    uses: hypothesis/workflows/.github/workflows/pypi.yml@main
+    secrets: inherit

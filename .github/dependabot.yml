@@ -1,0 +1,9 @@
+version: 2
+updates:
+- package-ecosystem: "pip"
+  directory: "/"
+  schedule:
+    interval: "monthly"
+    day: "sunday"
+    time: "00:00"
+    timezone: "Europe/London"

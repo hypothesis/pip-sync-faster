@@ -1,0 +1,12 @@
+build
+coverage
+node_modules
+yarn-error.log
+.coverage*
+.tox
+*.egg-info
+*.pyc
+supervisord.log
+supervisord.pid
+.DS_Store
+.devdata.env

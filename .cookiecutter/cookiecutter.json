@@ -1,0 +1,19 @@
+{
+  "template": "https://github.com/hypothesis/cookiecutters",
+  "directory": "pypackage",
+  "ignore": [],
+  "extra_context": {
+    "name": "pip-sync-faster",
+    "package_name": "pip_sync_faster",
+    "slug": "pip-sync-faster",
+    "short_description": "A wrapper that makes pip-sync faster.",
+    "python_versions": "3.10.4, 3.9.12, 3.8.13",
+    "github_owner": "hypothesis",
+    "copyright_holder": "Hypothesis",
+    "public": "yes",
+    "console_script": "yes",
+    "__entry_point": "pip-sync-faster",
+    "__github_url": "https://github.com/hypothesis/pip-sync-faster",
+    "__pypi_url": "https://pypi.org/project/pip-sync-faster"
+  }
+}
