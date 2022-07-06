@@ -75,7 +75,6 @@ def pip_sync_maybe(src_files, args):
 
 def entry_point():  # pragma: nocover
     parser = ArgumentParser()
-    parser.add_argument("-n", "--dry-run", action="store_true")
     parser.add_argument("--version", action="store_true")
     parser.add_argument("src_files", nargs="*")
 
