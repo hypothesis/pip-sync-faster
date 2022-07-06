@@ -25,13 +25,6 @@ class SrcFile:
 
     @property
     @lru_cache
-    def abspath_hash(self):
-        hash_ = hashlib.sha512()
-        hash_.update(self.abspath.encode("utf8"))
-        return hash_.hexdigest()
-
-    @property
-    @lru_cache
     def contents_hash(self):
         with open(self.abspath, "rb") as file:
             hash_ = hashlib.sha512()
@@ -52,7 +45,7 @@ def pip_sync_maybe(src_files, args):
     src_files = [SrcFile(src_file) for src_file in src_files]
 
     for src_file in src_files:
-        if src_file.contents_hash != cached_hashes.get(src_file.abspath_hash):
+        if src_file.contents_hash != cached_hashes.get(src_file.abspath):
             break
     else:
         # All of the source files already had matching hashes in the cache.
@@ -66,7 +59,7 @@ def pip_sync_maybe(src_files, args):
         sys.exit(err.returncode)
     else:
         for src_file in src_files:
-            cached_hashes[src_file.abspath_hash] = src_file.contents_hash
+            cached_hashes[src_file.abspath] = src_file.contents_hash
 
         # pip-sync succeeded so update the cache.
         with open(cached_hashes_path, "w", encoding="utf8") as cached_hashes_file:
