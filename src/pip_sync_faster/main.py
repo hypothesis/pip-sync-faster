@@ -3,7 +3,7 @@ import json
 import os
 import sys
 from argparse import ArgumentParser
-from functools import lru_cache
+from functools import cached_property
 from importlib.metadata import version
 from pathlib import Path
 from subprocess import CalledProcessError, run
@@ -11,30 +11,22 @@ from subprocess import CalledProcessError, run
 
 class SrcFile:
     def __init__(self, path):
-        self._path = path
+        self.path = path
 
-    @property
-    @lru_cache
-    def path(self):
-        return self._path
-
-    @property
-    @lru_cache
+    @cached_property
     def abspath(self):
-        return os.path.abspath(self._path)
+        return os.path.abspath(self.path)
 
-    @property
-    @lru_cache
+    @cached_property
     def contents_hash(self):
+        hash_ = hashlib.sha512()
         with open(self.abspath, "rb") as file:
-            hash_ = hashlib.sha512()
             hash_.update(file.read())
-            return hash_.hexdigest()
+        return hash_.hexdigest()
 
 
 def pip_sync_maybe(src_files, args):
-    virtualenv = Path(os.environ["VIRTUAL_ENV"])
-    cached_hashes_path = virtualenv / "pip_sync_faster.json"
+    cached_hashes_path = Path(os.environ["VIRTUAL_ENV"]) / "pip_sync_faster.json"
 
     try:
         with open(cached_hashes_path, "r", encoding="utf8") as cached_hashes_file:
@@ -58,15 +50,15 @@ def pip_sync_maybe(src_files, args):
     except CalledProcessError as err:
         sys.exit(err.returncode)
     else:
+        # pip-sync succeeded so update the cache.
         for src_file in src_files:
             cached_hashes[src_file.abspath] = src_file.contents_hash
 
-        # pip-sync succeeded so update the cache.
         with open(cached_hashes_path, "w", encoding="utf8") as cached_hashes_file:
             json.dump(cached_hashes, cached_hashes_file)
 
 
-def entry_point():  # pragma: nocover
+def entry_point():
     parser = ArgumentParser()
     parser.add_argument("--version", action="store_true")
     parser.add_argument("src_files", nargs="*")
