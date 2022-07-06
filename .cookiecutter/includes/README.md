@@ -1,8 +1,9 @@
 
-pip-sync-faster makes pip-sync run faster in the case where there's nothing to
-do because the virtualenv is already up to date with the requirements files. On
-my machine, with my requirements files, it shaves off about 500ms in the time
-taken to run pip-sync:
+pip-sync-faster makes
+[pip-sync](https://pip-tools.readthedocs.io/en/latest/#example-usage-for-pip-sync)
+run faster in the case where there's nothing to do because the virtualenv is
+already up to date with the requirements files. On my machine, with my
+requirements files, it shaves off over 500ms in the time taken to run pip-sync:
 
 ```terminal
 $ time pip-sync requirements/foo.txt
@@ -22,7 +23,6 @@ sys     0m0.008s
 pip-sync-faster does this by saving hashes of the given requirements files in a
 JSON file within the virtualenv and not calling pip-sync if the hashes haven't
 changed.
-
 If any of the given requirements files doesn't have a matching cached hash then
 pip-sync-faster calls pip-sync forwarding all command line arguments and
 options.
