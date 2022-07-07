@@ -26,10 +26,17 @@ ignore = [
     # pydocstyle rule D211 "No blank lines allowed before class docstring".
     "D203",
 
-    # "Multi-line docstring summary should start at the first line", this
-    # conflicts with another pycodestyle rule "Multi-line docstring summary
-    # should start at the second line".
+    # "Multi-line docstring summary should start at the first line"
+    # and "Multi-line docstring summary should start at the second line".
+    # These two rules conflict with each other so you have to disable one of them.
+    # How about we disable them both? PEP 257 says either approach is okay:
+    #
+    # > The summary line may be on the same line as the opening quotes or on
+    # > the next line.
+    # >
+    # > https://peps.python.org/pep-0257/#multi-line-docstrings
     "D212",
+    "D213",
 ]
 
 [tool.coverage.run]
