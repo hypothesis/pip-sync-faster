@@ -12,7 +12,7 @@
     "copyright_holder": "Hypothesis",
     "public": "yes",
     "console_script": "yes",
-    "__dependabot_interval": "monthly",
+    "dependabot_npm_interval": "monthly",
     "__entry_point": "pip-sync-faster",
     "__github_url": "https://github.com/hypothesis/pip-sync-faster",
     "__pypi_url": "https://pypi.org/project/pip-sync-faster"
