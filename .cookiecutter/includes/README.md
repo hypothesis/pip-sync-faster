@@ -27,6 +27,27 @@ If any of the given requirements files doesn't have a matching cached hash then
 pip-sync-faster calls pip-sync forwarding all command line arguments and
 options.
 
+## You need to add `pip-sync-faster` to your requirements file
+
+A command like `pip-sync-faster requirements.txt` will call
+`pip-sync requirements.txt` which will uninstall anything not in
+`requirements.txt` from the active venv, including `pip-sync-faster` itself!
+
+You can add `pip-sync-faster` to `requirements.txt` so that it doesn't get
+uninstalled.
+
+### Running `pip-sync-faster` directly instead
+
+Alternatively as long as `pip-tools` is installed in the active venv you can
+run `pip-sync-faster` directly with a command like:
+
+```bash
+PYTHONPATH=/path/to/pip-sync-faster/src python3 -m pip_sync_faster requirements.txt
+```
+
+This doesn't rely on `pip-sync-faster` being installed so there's no issue with
+`pip-sync` uninstalling it.
+
 ## pip-sync-faster doesn't sync modified virtualenvs
 
 If you modify your requirements files pip-sync-faster will notice the change
