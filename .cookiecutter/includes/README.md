@@ -1,18 +1,3 @@
-<a href="https://github.com/hypothesis/pip-sync-faster/actions/workflows/ci.yml?query=branch%3Amain"><img src="https://img.shields.io/github/workflow/status/hypothesis/pip-sync-faster/CI/main"></a>
-<a href="https://pypi.org/project/pip-sync-faster"><img src="https://img.shields.io/pypi/v/pip-sync-faster"></a>
-<a><img src="https://img.shields.io/badge/python-3.10 | 3.9 | 3.8-success"></a>
-<a href="https://github.com/hypothesis/pip-sync-faster/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-BSD--2--Clause-success"></a>
-<a href="https://github.com/hypothesis/cookiecutters/tree/main/pypackage"><img src="https://img.shields.io/badge/cookiecutter-pypackage-success"></a>
-<a href="https://black.readthedocs.io/en/stable/"><img src="https://img.shields.io/badge/code%20style-black-000000"></a>
-
-# pip-sync-faster
-
-A wrapper that makes pip-sync faster.
-
-For installation instructions see [INSTALL.md](https://github.com/hypothesis/pip-sync-faster/blob/main/INSTALL.md).
-
-For how to set up a pip-sync-faster development environment see
-[HACKING.md](https://github.com/hypothesis/pip-sync-faster/blob/main/HACKING.md).
 
 pip-sync-faster makes
 [pip-sync](https://pip-tools.readthedocs.io/en/latest/#example-usage-for-pip-sync)
@@ -35,7 +20,7 @@ user    0m0.029s
 sys     0m0.008s
 ```
 
-`pip-sync-faster` does this by saving hashes of the given requirements files in a
+pip-sync-faster does this by saving hashes of the given requirements files in a
 JSON file within the virtualenv and not calling pip-sync if the hashes haven't
 changed.
 If any of the given requirements files doesn't have a matching cached hash then
@@ -75,4 +60,4 @@ Calling pip-sync directly in this case would re-sync your virtualenv with your
 requirements files, but calling pip-sync-faster won't.
 
 If you can live with this limitation then you can use pip-sync-faster and save
-yourself a few hundred milliseconds. If not you should just use pip-sync.
+yourself a few hundred milliseconds.  If not you should just use pip-sync.

@@ -43,6 +43,9 @@ ignore = [
 branch = true
 parallel = true
 source = ["pip_sync_faster", "tests/unit"]
+omit = [
+    "*/pip_sync_faster/__main__.py",
+]
 
 [tool.coverage.paths]
 source = ["src", ".tox/*tests/lib/python*/site-packages"]
