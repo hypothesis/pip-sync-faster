@@ -1,4 +1,3 @@
-import sys
 from argparse import ArgumentParser
 from importlib.metadata import version
 from subprocess import CalledProcessError
@@ -21,9 +20,11 @@ def cli(_argv=None):
 
     if args[0].version:
         print(f"pip-sync-faster, version {version('pip-sync-faster')}")
-        sys.exit()
+        return 0
 
     try:
         pip_sync_faster(args[0].src_files)
     except CalledProcessError as err:
-        sys.exit(err.returncode)
+        return err.returncode
+    else:
+        return 0
