@@ -7,18 +7,20 @@ from pip_sync_faster.cli import cli
 
 
 def test_cli(pip_sync_faster):
-    cli(["requirements/dev.txt", "--foo", "bar"])
+    exit_code = cli(["requirements/dev.txt", "--foo", "bar"])
 
     pip_sync_faster.assert_called_once_with(["requirements/dev.txt"])
+    assert not exit_code
 
 
 def test_version(capsys):
-    cli(["--version"])
+    exit_code = cli(["--version"])
 
     assert (
         capsys.readouterr().out.strip()
         == f"pip-sync-faster, version {version('pip-sync-faster')}"
     )
+    assert not exit_code
 
 
 def test_if_pip_sync_fails(pip_sync_faster):
