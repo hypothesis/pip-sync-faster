@@ -39,8 +39,7 @@ def sync(src_files):
     # The hashes did not match the cached ones. This can happen if:
     #
     # * This is the first time that pip-sync-faster has been called for this venv
-    # * One or more of the requirements files has changed: its current hash
-    #   differs from its cached one
+    # * One or more of the requirements files has changed
     # * pip-sync-faster was called with a different set of requirements files
 
     run(["pip-sync", *sys.argv[1:]], check=True)
