@@ -22,7 +22,7 @@ def get_hashes(paths):
     return {abspath(path): get_hash(abspath(path)) for path in paths}
 
 
-def pip_sync_faster(src_files):
+def sync(src_files):
     cached_hashes_path = Path(environ["VIRTUAL_ENV"]) / "pip_sync_faster.json"
 
     try:

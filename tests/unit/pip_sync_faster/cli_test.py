@@ -6,10 +6,10 @@ import pytest
 from pip_sync_faster.cli import cli
 
 
-def test_cli(pip_sync_faster):
+def test_cli(sync):
     exit_code = cli(["requirements/dev.txt", "--foo", "bar"])
 
-    pip_sync_faster.assert_called_once_with(["requirements/dev.txt"])
+    sync.assert_called_once_with(["requirements/dev.txt"])
     assert not exit_code
 
 
@@ -23,8 +23,8 @@ def test_version(capsys):
     assert not exit_code
 
 
-def test_if_pip_sync_fails(pip_sync_faster):
-    pip_sync_faster.side_effect = CalledProcessError(23, ["pip-sync"])
+def test_if_pip_sync_fails(sync):
+    sync.side_effect = CalledProcessError(23, ["pip-sync"])
 
     exit_code = cli(["requirements/dev.txt"])
 
@@ -33,5 +33,5 @@ def test_if_pip_sync_fails(pip_sync_faster):
 
 
 @pytest.fixture(autouse=True)
-def pip_sync_faster(mocker):
-    return mocker.patch("pip_sync_faster.cli.pip_sync_faster", autospec=True)
+def sync(mocker):
+    return mocker.patch("pip_sync_faster.cli.sync", autospec=True)

@@ -13,14 +13,14 @@ class TestPipSyncFaster:
         # Make sure that all the cached hashes are present and matching.
         cache_hashes(get_hashes(requirements_files))
 
-        core.pip_sync_faster(requirements_files)
+        core.sync(requirements_files)
 
         run.assert_not_called()
 
     def test_if_theres_no_cached_hashes(
         self, assert_hashes_cached, requirements_files, run
     ):
-        core.pip_sync_faster(requirements_files)
+        core.sync(requirements_files)
 
         run.assert_called_once_with(["pip-sync", *sys.argv[1:]], check=True)
         assert_hashes_cached(requirements_files)
@@ -33,7 +33,7 @@ class TestPipSyncFaster:
         hashes[list(hashes.keys())[0]] = "non_matching_hash"
         cache_hashes(hashes)
 
-        core.pip_sync_faster(requirements_files)
+        core.sync(requirements_files)
 
         run.assert_called_once_with(["pip-sync", *sys.argv[1:]], check=True)
         assert_hashes_cached(requirements_files)
@@ -44,7 +44,7 @@ class TestPipSyncFaster:
         # Make the cached hashes file be missing one hash.
         cache_hashes(get_hashes(requirements_files[1:]))
 
-        core.pip_sync_faster(requirements_files)
+        core.sync(requirements_files)
 
         run.assert_called_once_with(["pip-sync", *sys.argv[1:]], check=True)
         assert_hashes_cached(requirements_files)
@@ -56,7 +56,7 @@ class TestPipSyncFaster:
         cache_hashes(get_hashes(requirements_files))
 
         # pip-sync-faster is called with just format.txt.
-        core.pip_sync_faster(requirements_files[1:])
+        core.sync(requirements_files[1:])
 
         # It should call pip-sync: the last time that pip-sync-faster was
         # called (and updated the cache) it was called with both dev.txt and

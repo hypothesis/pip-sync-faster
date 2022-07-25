@@ -2,7 +2,7 @@ from argparse import ArgumentParser
 from importlib.metadata import version
 from subprocess import CalledProcessError
 
-from pip_sync_faster.core import pip_sync_faster
+from pip_sync_faster.core import sync
 
 
 def cli(_argv=None):
@@ -23,7 +23,7 @@ def cli(_argv=None):
         return 0
 
     try:
-        pip_sync_faster(args[0].src_files)
+        sync(args[0].src_files)
     except CalledProcessError as err:
         return err.returncode
     else:
