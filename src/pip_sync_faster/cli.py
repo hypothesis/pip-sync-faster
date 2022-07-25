@@ -5,7 +5,7 @@ from subprocess import CalledProcessError
 from pip_sync_faster.sync import sync
 
 
-def cli(_argv=None):
+def cli(_argv=None):  # pylint:disable=inconsistent-return-statements
     parser = ArgumentParser(
         description="Synchronize the active venv with requirements.txt files."
     )
@@ -20,11 +20,9 @@ def cli(_argv=None):
 
     if args[0].version:
         print(f"pip-sync-faster, version {version('pip-sync-faster')}")
-        return 0
+        return
 
     try:
         sync(args[0].src_files)
     except CalledProcessError as err:
         return err.returncode
-    else:
-        return 0
