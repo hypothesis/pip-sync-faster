@@ -2,7 +2,7 @@ from argparse import ArgumentParser
 from importlib.metadata import version
 from subprocess import CalledProcessError
 
-from pip_sync_faster.core import sync
+from pip_sync_faster.sync import sync
 
 
 def cli(_argv=None):
