@@ -1,7 +1,7 @@
 {
   "template": "https://github.com/hypothesis/cookiecutters",
   "directory": "pypackage",
-  "ignore": [],
+  "ignore": ["src/pip_sync_faster/core.py", "tests/unit/pip_sync_faster/core_test.py"],
   "extra_context": {
     "name": "pip-sync-faster",
     "package_name": "pip_sync_faster",

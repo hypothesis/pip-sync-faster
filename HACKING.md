@@ -118,7 +118,7 @@ options:
 
 But there's a problem with running `pip-sync-faster` commands in this way: a
 command like `tox -e dev --run-command 'pip-sync-faster requirements.txt'` will
-run `pip-sync requirements.txt` as a subprocess and `pip-sync` will sync the
+run `pip-sync requirements.txt` and `pip-sync` will sync the
 current virtualenv (`.tox/dev/`) with the `requirements.txt` file. Everything
 in `requirements.txt` will get installed into `.tox/dev/`, which you probably
 don't want. Even worse everything _not_ in `requirements.txt` will get
