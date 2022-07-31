@@ -20,7 +20,7 @@ user    0m0.029s
 sys     0m0.008s
 ```
 
-pip-sync-faster does this by saving hashes of the given requirements files in a
+`pip-sync-faster` does this by saving hashes of the given requirements files in a
 JSON file within the virtualenv and not calling pip-sync if the hashes haven't
 changed.
 If any of the given requirements files doesn't have a matching cached hash then
@@ -60,4 +60,4 @@ Calling pip-sync directly in this case would re-sync your virtualenv with your
 requirements files, but calling pip-sync-faster won't.
 
 If you can live with this limitation then you can use pip-sync-faster and save
-yourself a few hundred milliseconds.  If not you should just use pip-sync.
+yourself a few hundred milliseconds. If not you should just use pip-sync.
