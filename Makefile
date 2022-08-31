@@ -4,6 +4,10 @@ comma := ,
 help = help::; @echo $$$$(tput bold)$(strip $(1)):$$$$(tput sgr0) $(strip $(2))
 $(call help,make help,print this help message)
 
+.PHONY: services
+
+.PHONY: devdata
+
 .PHONY: shell
 $(call help,make shell,"launch a Python shell in this project's virtualenv")
 shell: python
@@ -64,6 +68,7 @@ functests-py38: python
 
 .PHONY: sure
 $(call help,make sure,"make sure that the formatting$(comma) linting and tests all pass")
+sure: python
 sure:
 	@pyenv exec tox --parallel -qe 'checkformatting,lint,tests,py{39,38}-tests,coverage,functests,py{39,38}-functests'
 
