@@ -1,9 +1,13 @@
-from importlib.metadata import version
 from subprocess import CalledProcessError
 
 import pytest
 
 from pip_sync_faster.cli import cli
+
+try:
+    from importlib.metadata import version
+except ModuleNotFoundError:
+    from importlib_metadata import version
 
 
 def test_cli(sync):

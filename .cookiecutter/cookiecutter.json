@@ -7,7 +7,7 @@
     "package_name": "pip_sync_faster",
     "slug": "pip-sync-faster",
     "short_description": "A wrapper that makes pip-sync faster.",
-    "python_versions": "3.10.4, 3.9.12, 3.8.13",
+    "python_versions": "3.10.4, 3.9.12, 3.8.13, 3.7.13",
     "github_owner": "hypothesis",
     "copyright_holder": "Hypothesis",
     "public": "yes",
