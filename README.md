@@ -129,7 +129,7 @@ Then to set up your development environment:
 
 ```terminal
 git clone https://github.com/hypothesis/pip-sync-faster.git
-cd pip_sync_faster
+cd pip-sync-faster
 make help
 ```
 

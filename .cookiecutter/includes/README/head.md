@@ -1,4 +1,3 @@
-
 pip-sync-faster makes
 [pip-sync](https://pip-tools.readthedocs.io/en/latest/#example-usage-for-pip-sync)
 run faster in the case where there's nothing to do because the virtualenv is

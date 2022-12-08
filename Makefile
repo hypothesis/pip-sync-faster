@@ -30,32 +30,28 @@ checkformatting: python
 
 .PHONY: test
 $(call help,make test,"run the unit tests in Python 3.10")
-coverage: test
 test: python
 	@pyenv exec tox -qe tests
 
 .PHONY: test-py39
 $(call help,make test-py39,"run the unit tests in Python 3.9")
-coverage: test-py39
 test-py39: python
 	@pyenv exec tox -qe py39-tests
 
 .PHONY: test-py38
 $(call help,make test-py38,"run the unit tests in Python 3.8")
-coverage: test-py38
 test-py38: python
 	@pyenv exec tox -qe py38-tests
 
 .PHONY: test-py37
 $(call help,make test-py37,"run the unit tests in Python 3.7")
-coverage: test-py37
 test-py37: python
 	@pyenv exec tox -qe py37-tests
 
 .PHONY: coverage
 $(call help,make coverage,"run the tests and print the coverage report")
 coverage: python
-	@pyenv exec tox -qe coverage
+	@pyenv exec tox --parallel -qe 'tests,py{39,38,37}-tests,coverage'
 
 .PHONY: functests
 $(call help,make functests,"run the functional tests in Python 3.10")
