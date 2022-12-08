@@ -12,7 +12,7 @@ for python_version in 3.10.6 3.9.13 3.8.13 3.7.13; do
     bin_dir=$pyenv_root/versions/$python_version/bin
     if [ ! -f "$bin_dir"/tox ]; then
         pyenv install --skip-existing "$python_version"
-        "$bin_dir"/pip install --disable-pip-version-check tox
+        "$bin_dir"/pip install --disable-pip-version-check 'tox<4'
         pyenv rehash
     fi
 done
