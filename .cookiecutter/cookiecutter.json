@@ -19,6 +19,7 @@
     "__entry_point": "pip-sync-faster",
     "__github_url": "https://github.com/hypothesis/pip-sync-faster",
     "__pypi_url": "https://pypi.org/project/pip-sync-faster",
-    "__copyright_year": "2022"
+    "__copyright_year": "2022",
+    "pypi": "yes"
   }
 }
