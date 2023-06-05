@@ -87,6 +87,8 @@ load-plugins = [
 fail-on = ["C", "E", "F", "I", "R", "W"]
 
 [tool.pylint.messages_control]
+ignore-paths=[
+]
 enable = [
     "bad-inline-option",
     "deprecated-pragma",
