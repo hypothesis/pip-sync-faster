@@ -87,7 +87,7 @@ template: python
 .PHONY: clean
 $(call help,make clean,"delete temporary files etc")
 clean:
-	@rm -rf build dist .tox
+	@rm -rf build dist .tox .coverage coverage .eslintcache node_modules supervisord.log supervisord.pid yarn-error.log
 	@find . -path '*/__pycache__*' -delete
 	@find . -path '*.egg-info*' -delete
 

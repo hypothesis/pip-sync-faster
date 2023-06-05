@@ -9,4 +9,5 @@ yarn-error.log
 supervisord.log
 supervisord.pid
 .DS_Store
-.devdata.env
+.devdata*
+.eslintcache
