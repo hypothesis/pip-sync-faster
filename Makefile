@@ -82,7 +82,7 @@ functests-py37: python
 $(call help,make sure,"make sure that the formatting$(comma) linting and tests all pass")
 sure: python
 sure:
-	@pyenv exec tox --parallel -qe 'checkformatting,lint,tests,py{39,38,37}-tests,coverage,functests,py{39,38,37}-functests'
+	@pyenv exec tox --parallel -qe 'checkformatting,lint,typecheck,tests,py{39,38,37}-tests,coverage,functests,py{39,38,37}-functests'
 
 .PHONY: template
 $(call help,make template,"update from the latest cookiecutter template")
