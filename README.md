@@ -1,6 +1,6 @@
 <a href="https://github.com/hypothesis/pip-sync-faster/actions/workflows/ci.yml?query=branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/hypothesis/pip-sync-faster/ci.yml?branch=main"></a>
 <a href="https://pypi.org/project/pip-sync-faster"><img src="https://img.shields.io/pypi/v/pip-sync-faster"></a>
-<a><img src="https://img.shields.io/badge/python-3.10 | 3.9 | 3.8-success"></a>
+<a><img src="https://img.shields.io/badge/python-3.12 | 3.11 | 3.10 | 3.9 | 3.8-success"></a>
 <a href="https://github.com/hypothesis/pip-sync-faster/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-BSD--2--Clause-success"></a>
 <a href="https://github.com/hypothesis/cookiecutters/tree/main/pypackage"><img src="https://img.shields.io/badge/cookiecutter-pypackage-success"></a>
 <a href="https://black.readthedocs.io/en/stable/"><img src="https://img.shields.io/badge/code%20style-black-000000"></a>
