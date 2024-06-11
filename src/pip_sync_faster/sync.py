@@ -8,7 +8,7 @@ from subprocess import run
 
 
 def get_hash(path):
-    """Return the hash of the given file."""
+    """Return a hash of the given file."""
     hashobj = hashlib.sha512()
 
     with open(path, "rb") as file:
