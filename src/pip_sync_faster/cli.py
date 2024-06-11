@@ -1,12 +1,8 @@
 from argparse import ArgumentParser
+from importlib.metadata import version
 from subprocess import CalledProcessError
 
 from pip_sync_faster.sync import sync
-
-try:
-    from importlib.metadata import version
-except ModuleNotFoundError:
-    from importlib_metadata import version
 
 
 def cli(_argv=None):  # pylint:disable=inconsistent-return-statements
