@@ -48,15 +48,10 @@ $(call help,make test-py38,"run the unit tests in Python 3.8")
 test-py38: python
 	@pyenv exec tox -qe py38-tests
 
-.PHONY: test-py37
-$(call help,make test-py37,"run the unit tests in Python 3.7")
-test-py37: python
-	@pyenv exec tox -qe py37-tests
-
 .PHONY: coverage
 $(call help,make coverage,"run the tests and print the coverage report")
 coverage: python
-	@pyenv exec tox --parallel -qe 'tests,py{39,38,37}-tests,coverage'
+	@pyenv exec tox --parallel -qe 'tests,py{39,38}-tests,coverage'
 
 .PHONY: functests
 $(call help,make functests,"run the functional tests in Python 3.10")
@@ -73,16 +68,11 @@ $(call help,make functests-py38,"run the functional tests in Python 3.8")
 functests-py38: python
 	@pyenv exec tox -qe py38-functests
 
-.PHONY: functests-py37
-$(call help,make functests-py37,"run the functional tests in Python 3.7")
-functests-py37: python
-	@pyenv exec tox -qe py37-functests
-
 .PHONY: sure
 $(call help,make sure,"make sure that the formatting$(comma) linting and tests all pass")
 sure: python
 sure:
-	@pyenv exec tox --parallel -qe 'checkformatting,lint,tests,py{39,38,37}-tests,coverage,functests,py{39,38,37}-functests'
+	@pyenv exec tox --parallel -qe 'checkformatting,lint,tests,py{39,38}-tests,coverage,functests,py{39,38}-functests'
 
 .PHONY: template
 $(call help,make template,"update from the latest cookiecutter template")
