@@ -77,7 +77,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Download coverage files
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: coverage
       - run: python -m pip install 'tox<4'
