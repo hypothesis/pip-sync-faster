@@ -6,6 +6,7 @@ import pytest
 from pip_sync_faster import sync
 
 
+# pylint:disable=too-many-positional-arguments
 class TestPipSyncFaster:
     def test_if_the_hashes_match_it_doesnt_call_pip_sync(
         self, cache_hashes, get_hashes, run, requirements_files
