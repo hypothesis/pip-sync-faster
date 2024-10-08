@@ -158,8 +158,3 @@ module= [
   "tests.*",
 ]
 ignore_errors = true
-
-
-[tool.hdev]
-project_name = "pip-sync-faster"
-project_type = "library"
