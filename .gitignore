@@ -11,3 +11,4 @@ supervisord.pid
 .DS_Store
 .devdata*
 .eslintcache
+*.tsbuildinfo
