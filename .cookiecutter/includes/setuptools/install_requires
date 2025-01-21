@@ -1,2 +1,0 @@
-pip-tools
-importlib_metadata;python_version<"3.8."

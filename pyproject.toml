@@ -2,6 +2,29 @@
 requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
+[project]
+dynamic = ["version"]
+name = "pip-sync-faster"
+description = "A wrapper that makes pip-sync faster."
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Intended Audience :: Developers",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "pip-tools",
+]
+
+[project.urls]
+Repository = "https://github.com/hypothesis/pip-sync-faster"
+Issues = "https://github.com/hypothesis/pip-sync-faster/issues"
+Changelog = "https://github.com/hypothesis/pip-sync-faster/releases"
+
+[project.scripts]
+pip-sync-faster = "pip_sync_faster.cli:cli"
+
 [tool.setuptools_scm]
 
 [tool.pytest.ini_options]
