@@ -12,3 +12,4 @@ supervisord.pid
 .devdata*
 .eslintcache
 *.tsbuildinfo
+.vscode
